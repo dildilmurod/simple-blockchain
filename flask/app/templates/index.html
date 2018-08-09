@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('index') }}" method="post">
+    <div class="form-group">
+        <label for="exampleInputStudent">Student name</label>
+        <input type="text" class="form-control" id="student" placeholder="John Malkovich" name="student" value="{{request.form.get('student', '')}}">
+        <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputStudentId">Student id</label>
+        <input type="text" class="form-control" id="s_id" placeholder="U1410099" name="s_id" value="{{request.form.get('s_id', '')}}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassport">Passport id</label>
+        <input type="text" class="form-control" id="passport" placeholder="AA1234567" name="passport" value="{{request.form.get('passport', '')}}">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPhone">Phone number</label>
+        <input type="text" class="form-control" id="phone" placeholder="+998999999999" name="phone" value="{{request.form.get('phone', '')}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+
+
+{% block checking %}
+    {% for result in res %}
+    <div class="result">
+        block {{ result['block'] }} : {{ result['result'] }}
+    </div>
+
+    {% endfor %}
+
+{% endblock %}
+
+
+
